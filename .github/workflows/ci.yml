@@ -14,6 +14,9 @@ jobs:
           - compiler: gcc
             os: windows-latest
             configuration: debug
+          - compiler: clang
+            os: windows-latest
+            configuration: debug
 
     runs-on: windows-latest
     steps:
