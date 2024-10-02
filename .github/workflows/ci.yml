@@ -10,19 +10,13 @@ jobs:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
         configuration: [release, debug]
-        animal: [cat, dog]
         include:
-          - color: green
-          - color: pink
-            animal: cat
-          - os: macos-latest
-            shape: circle
-          - os: banana
-          - os: banana
-            animal: cat
+          - os: windows-latest
+            configuration: debug
+            compiler: gcc
 
     runs-on: windows-latest
     steps:
     - name: Test
       run: |
-        echo "${{ matrix.os }} ${{matrix.configuration}} ${{ matrix.animal }} ${{ matrix.color }} ${{ matrix.shape }}"
+        echo "${{ matrix.os }} ${{matrix.configuration}} ${{ matrix.compiler }}"
