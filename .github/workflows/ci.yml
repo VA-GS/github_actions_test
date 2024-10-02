@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    name: Build & test
+    strategy:
+      fail-fast: false
+      matrix:
+        fruit: [apple, pear]
+        animal: [cat, dog]
+        include:
+          - color: green
+          - color: pink
+            animal: cat
+          - fruit: apple
+            shape: circle
+          - fruit: banana
+          - fruit: banana
+            animal: cat
+
+    runs-on: windows-latest
+    steps:
+    - name: Test
+      run: |
+        echo "${{ matrix.fruit }} ${{ matrix.animal }} ${{ matrix.color }} ${{ matrix.shape }}"
