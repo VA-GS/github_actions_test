@@ -11,9 +11,9 @@ jobs:
         os: [macos-latest, windows-latest, ubuntu-latest]
         configuration: [release, debug]
         include:
-          - os: windows-latest
+          - compiler: gcc
+            os: windows-latest
             configuration: debug
-            compiler: gcc
 
     runs-on: windows-latest
     steps:
