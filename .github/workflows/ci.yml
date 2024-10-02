@@ -8,20 +8,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        fruit: [apple, pear]
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        configuration: [release, debug]
         animal: [cat, dog]
         include:
           - color: green
           - color: pink
             animal: cat
-          - fruit: apple
+          - os: macos-latest
             shape: circle
-          - fruit: banana
-          - fruit: banana
+          - os: banana
+          - os: banana
             animal: cat
 
     runs-on: windows-latest
     steps:
     - name: Test
       run: |
-        echo "${{ matrix.fruit }} ${{ matrix.animal }} ${{ matrix.color }} ${{ matrix.shape }}"
+        echo "${{ matrix.os }} ${{matrix.configuration}} ${{ matrix.animal }} ${{ matrix.color }} ${{ matrix.shape }}"
